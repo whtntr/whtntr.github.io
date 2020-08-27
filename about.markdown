@@ -15,9 +15,11 @@ permalink: /about/
 - [Bitbucket][bitbucket-path]
 - [GitHub][github-path]
 - [Vk][vk-path]
-- telegram: @whtntr
-- twitter: @whitantire
+- [Telegram][telegram-path]
+- [Twitter][twitter-path]
 
 [vk-path]: https://vk.com/whitantire
 [bitbucket-path]: https://bitbucket.com/myrkon
 [github-path]: https://github.com/whtntr
+[telegram-path]: https://t.me/whitantire
+[twitter-path]: https://twitter.com/whitantire
