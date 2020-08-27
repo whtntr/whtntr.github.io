@@ -12,8 +12,12 @@ permalink: /about/
 
 Я не думаю, что дальнейшая ин-фа будет кому-то нужна, но чисто из формальности, оставлю способ-другой, как со мной связаться. 
 
+- [bitbucket][bitbucket-path]
+- [github][github-path]
 - [Vk][vk-path]
 - telegram: @whtntr
 - twitter: @whitantire
 
 [vk-path]: https://vk.com/whitantire
+[bitbucket-path]: https://bitbucket.com/myrkon
+[github-path]: https://github.com/whtntr
