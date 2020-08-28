@@ -1,0 +1,38 @@
+I"�<p>Каждый художник, у которого имеются два монитора на линуксе, столкнётся с этой проблемой. Поле графического планшета охватывает сразу два экрана. Проведя стилусом от края до края, курсор мыши, в свою очередь проделает путь от левого края первого монитора, до правого края второго монитора, что есть неудобно, и немного дезориентирует.</p>
+
+<p>Немного порывшись в гугле, я нашел команду, которая эту проблему решает.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xinput map-to-output 16 HDMI-0
+</code></pre></div></div>
+
+<p>Где 16 — там id нашего стилуса, который можно посмотреть, выполнив комманду xinput.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xinput
+⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]
+⎜   ↳ Gaming KB Gaming KB Consumer Control    	id=10	[slave  pointer  (2)]
+⎜   ↳ USB OPTICAL MOUSE                       	id=13	[slave  pointer  (2)]
+⎜   ↳ GAOMON Gaomon Tablet Pen Pen (0)        	id=16	[slave  pointer  (2)]
+⎣ Virtual core keyboard                   	id=3	[master keyboard (2)]
+    ↳ Virtual core XTEST keyboard             	id=5	[slave  keyboard (3)]
+    ↳ Power Button                            	id=6	[slave  keyboard (3)]
+    ↳ Power Button                            	id=7	[slave  keyboard (3)]
+    ↳ GAOMON Gaomon Tablet Pen                	id=8	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB                     	id=9	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB System Control      	id=11	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB Keyboard            	id=12	[slave  keyboard (3)]
+    ↳ USB Sound Device                        	id=14	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB Consumer Control    	id=15	[slave  keyboard (3)]
+</code></pre></div></div>
+
+<p><strong>ВАЖНО!:</strong> Ты должен выбрать девайс, в названии которого есть Pen или Stylus, в разделе <strong>Virtual core pointer</strong>. Я имею планшет от фирмы Gaomon.</p>
+
+<h3 id="скрипт">Скрипт</h3>
+
+<p>Так же, я для себя написал скрипт на питоне, с который можно поставить в автозагрузку. Знаю, можно было и на баше написать, но мне было лень.</p>
+
+<p>Скрипт можно достать вот <a href="https://bitbucket.org/myrkon/workspace/snippets/kn8xA7">тут</a></p>
+
+<p>В пятой строке, в переменную device_name в кавычках мы должны написать название стилуса планшета, которое мы опять можем взять из вывода команды xinput.</p>
+
+:ET

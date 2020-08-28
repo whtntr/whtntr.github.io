@@ -1,5 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-27T08:49:52+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">White Blog</title><subtitle>this is just my blog, and not something else. Это просто мой блог, и ничего иначе.</subtitle><entry><title type="html">Мои любимые цитаты из книг. (постоянно обновляется)</title><link href="http://localhost:4000/jekyll/update/2020/08/27/quotes-from-books.html" rel="alternate" type="text/html" title="Мои любимые цитаты из книг. (постоянно обновляется)" /><published>2020-08-27T08:48:01+03:00</published><updated>2020-08-27T08:48:01+03:00</updated><id>http://localhost:4000/jekyll/update/2020/08/27/quotes-from-books</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/08/27/quotes-from-books.html">&lt;h2 id=&quot;цитаты-из-книг&quot;&gt;Цитаты из книг&lt;/h2&gt;
-&lt;h3 id=&quot;о-моем-превращении-в-меч&quot;&gt;О моем превращении в меч&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-28T14:47:59+03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">White Blog</title><subtitle>Это просто мой блог, и ничего иначе.</subtitle><entry><title type="html">Как выбрать определенный монитор для графического планшета?</title><link href="http://localhost:4000/jekyll/update/2020/08/28/graphics-tablet-monitor-chooser.html" rel="alternate" type="text/html" title="Как выбрать определенный монитор для графического планшета?" /><published>2020-08-28T14:05:00+03:00</published><updated>2020-08-28T14:05:00+03:00</updated><id>http://localhost:4000/jekyll/update/2020/08/28/graphics-tablet-monitor-chooser</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/08/28/graphics-tablet-monitor-chooser.html">&lt;p&gt;Каждый художник, у которого имеются два монитора на линуксе, столкнётся с этой проблемой. Поле графического планшета охватывает сразу два экрана. Проведя стилусом от края до края, курсор мыши, в свою очередь проделает путь от левого края первого монитора, до правого края второго монитора, что есть неудобно, и немного дезориентирует.&lt;/p&gt;
+
+&lt;p&gt;Немного порывшись в гугле, я нашел команду, которая эту проблему решает.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;xinput map-to-output 16 HDMI-0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Где 16 — там id нашего стилуса, который можно посмотреть, выполнив комманду xinput.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ xinput
+⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]
+⎜   ↳ Gaming KB Gaming KB Consumer Control    	id=10	[slave  pointer  (2)]
+⎜   ↳ USB OPTICAL MOUSE                       	id=13	[slave  pointer  (2)]
+⎜   ↳ GAOMON Gaomon Tablet Pen Pen (0)        	id=16	[slave  pointer  (2)]
+⎣ Virtual core keyboard                   	id=3	[master keyboard (2)]
+    ↳ Virtual core XTEST keyboard             	id=5	[slave  keyboard (3)]
+    ↳ Power Button                            	id=6	[slave  keyboard (3)]
+    ↳ Power Button                            	id=7	[slave  keyboard (3)]
+    ↳ GAOMON Gaomon Tablet Pen                	id=8	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB                     	id=9	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB System Control      	id=11	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB Keyboard            	id=12	[slave  keyboard (3)]
+    ↳ USB Sound Device                        	id=14	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB Consumer Control    	id=15	[slave  keyboard (3)]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;ВАЖНО!:&lt;/strong&gt; Ты должен выбрать девайс, в названии которого есть Pen или Stylus, в разделе &lt;strong&gt;Virtual core pointer&lt;/strong&gt;. Я имею планшет от фирмы Gaomon.&lt;/p&gt;
+
+&lt;p&gt;А где HDMI-0 — это название порта, к которому подключен наш монитор. Его посмотреть можно с помощью команды xrandr&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$xrandr
+Screen 0: minimum 8 x 8, current 3840 x 1080, maximum 16384 x 16384
+VGA-0 connected 1920x1080+1920+0 (normal left inverted right x axis y axis) 476mm x 268mm
+   1920x1080     60.00*+
+   1600x900      60.00  
+   1280x1024     75.02    60.02  
+   1152x864      75.00  
+   1024x768      75.03    60.00  
+   800x600       75.00    60.32  
+   640x480       75.00    59.94  
+DVI-D-0 disconnected (normal left inverted right x axis y axis)
+HDMI-0 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 521mm x 293mm
+   1920x1080     60.00*+  59.94    50.00  
+   1680x1050     59.95  
+   1600x900      60.00  
+   1440x900      59.89  
+   1280x1024     75.02    60.02  
+   1280x800      59.81  
+   1280x720      60.00    59.94    50.00  
+   1152x864      75.00  
+   1024x768      75.03    70.07    60.00  
+   800x600       75.00    72.19    60.32    56.25  
+   720x576       50.00  
+   720x480       59.94  
+   640x480       75.00    72.81    59.94  
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;скрипт&quot;&gt;Скрипт&lt;/h3&gt;
+
+&lt;p&gt;Так же, я для себя написал скрипт на питоне, который можно поставить в автозагрузку. Знаю, можно было и на баше написать, но мне было лень.&lt;/p&gt;
+
+&lt;p&gt;Скрипт можно достать вот &lt;a href=&quot;https://bitbucket.org/myrkon/workspace/snippets/kn8xA7&quot;&gt;тут&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;В пятой строке, в переменную device_name в кавычки мы должны написать название стилуса планшета, которое мы опять можем взять из вывода команды xinput.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Каждый художник, у которого имеются два монитора на линуксе, столкнётся с этой проблемой. Поле графического планшета охватывает сразу два экрана. Проведя стилусом от края до края, курсор мыши, в свою очередь проделает путь от левого края первого монитора, до правого края второго монитора, что есть неудобно, и немного дезориентирует.</summary></entry><entry><title type="html">Мои любимые цитаты из книг. (постоянно обновляется)</title><link href="http://localhost:4000/jekyll/update/2020/08/27/quotes-from-books.html" rel="alternate" type="text/html" title="Мои любимые цитаты из книг. (постоянно обновляется)" /><published>2020-08-27T08:48:01+03:00</published><updated>2020-08-27T08:48:01+03:00</updated><id>http://localhost:4000/jekyll/update/2020/08/27/quotes-from-books</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/08/27/quotes-from-books.html">&lt;h3 id=&quot;о-моем-превращении-в-меч&quot;&gt;О моем превращении в меч&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;” 31.12.3619 г.&lt;/p&gt;
@@ -303,9 +367,7 @@
   &lt;p&gt;— Что-то звук накрылся. Еще раз повторю, давай в больницу.&lt;/p&gt;
 
   &lt;p&gt;— А-А-А-А-А! Нет, я же говорю, не в этом дело!.. Я, это не болезнь! Я просто живу, наслаждаюсь жизнью и делаю все как мама говорит! Каждый день учусь, хорошо учусь, папы вот не стало — очень стараюсь порадовать маму, а стоит чуть приболеть, сразу такие слова, зачем?!&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Цитаты из книг О моем превращении в меч</summary></entry><entry><title type="html">Мой личный список ранобе к прочтению</title><link href="http://localhost:4000/jekyll/update/2020/08/27/ranobelist.html" rel="alternate" type="text/html" title="Мой личный список ранобе к прочтению" /><published>2020-08-27T08:27:01+03:00</published><updated>2020-08-27T08:27:01+03:00</updated><id>http://localhost:4000/jekyll/update/2020/08/27/ranobelist</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/08/27/ranobelist.html">&lt;h2 id=&quot;список-ранобе-к-прочтению&quot;&gt;Список ранобе к прочтению:&lt;/h2&gt;
-
-&lt;ul&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">О моем превращении в меч</summary></entry><entry><title type="html">Мой личный список ранобе к прочтению</title><link href="http://localhost:4000/jekyll/update/2020/08/27/ranobelist.html" rel="alternate" type="text/html" title="Мой личный список ранобе к прочтению" /><published>2020-08-27T08:27:01+03:00</published><updated>2020-08-27T08:27:01+03:00</updated><id>http://localhost:4000/jekyll/update/2020/08/27/ranobelist</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/08/27/ranobelist.html">&lt;ul&gt;
   &lt;li&gt;Война в Астериске
     &lt;blockquote&gt;
       &lt;p&gt;Прибыв в Академию Стратегической Обороны Атараксию по просьбе старшей сестры, Хида Кидзуна встречает девушку, обладающую магическим доспехом «Зерос», Тидоригафути Айнэ. Внезапно Айнэ начинает раздеваться прямо перед ним, однако… «Не смотри, извращенец…» «Так это же ты начала?!» Кидзуна приходит в замешательство от едких замечаний девушки. Но в то же время его сестра сообщает о начале важной миссии. Её содержание – помять грудь Айнэ?! Правда в том, что Кидзуна обладает способностью улучшать девушек путем непристойных действий, силой, от которой будет зависеть исход войны с иным миром!&lt;/p&gt;
@@ -382,4 +444,4 @@
     &lt;/blockquote&gt;
   &lt;/li&gt;
   &lt;li&gt;Некий магический индекс&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Список ранобе к прочтению:</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Война в Астериске Прибыв в Академию Стратегической Обороны Атараксию по просьбе старшей сестры, Хида Кидзуна встречает девушку, обладающую магическим доспехом «Зерос», Тидоригафути Айнэ. Внезапно Айнэ начинает раздеваться прямо перед ним, однако… «Не смотри, извращенец…» «Так это же ты начала?!» Кидзуна приходит в замешательство от едких замечаний девушки. Но в то же время его сестра сообщает о начале важной миссии. Её содержание – помять грудь Айнэ?! Правда в том, что Кидзуна обладает способностью улучшать девушек путем непристойных действий, силой, от которой будет зависеть исход войны с иным миром!</summary></entry></feed>

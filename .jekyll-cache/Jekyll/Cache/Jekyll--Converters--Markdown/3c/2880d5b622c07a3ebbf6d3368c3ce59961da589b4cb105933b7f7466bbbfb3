@@ -1,0 +1,68 @@
+I"<p>Каждый художник, у которого имеются два монитора на линуксе, столкнётся с этой проблемой. Поле графического планшета охватывает сразу два экрана. Проведя стилусом от края до края, курсор мыши, в свою очередь проделает путь от левого края первого монитора, до правого края второго монитора, что есть неудобно, и немного дезориентирует.</p>
+
+<p>Немного порывшись в гугле, я нашел команду, которая эту проблему решает.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xinput map-to-output 16 HDMI-0
+</code></pre></div></div>
+
+<p>Где 16 — там id нашего стилуса, который можно посмотреть, выполнив комманду xinput.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xinput
+⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]
+⎜   ↳ Gaming KB Gaming KB Consumer Control    	id=10	[slave  pointer  (2)]
+⎜   ↳ USB OPTICAL MOUSE                       	id=13	[slave  pointer  (2)]
+⎜   ↳ GAOMON Gaomon Tablet Pen Pen (0)        	id=16	[slave  pointer  (2)]
+⎣ Virtual core keyboard                   	id=3	[master keyboard (2)]
+    ↳ Virtual core XTEST keyboard             	id=5	[slave  keyboard (3)]
+    ↳ Power Button                            	id=6	[slave  keyboard (3)]
+    ↳ Power Button                            	id=7	[slave  keyboard (3)]
+    ↳ GAOMON Gaomon Tablet Pen                	id=8	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB                     	id=9	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB System Control      	id=11	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB Keyboard            	id=12	[slave  keyboard (3)]
+    ↳ USB Sound Device                        	id=14	[slave  keyboard (3)]
+    ↳ Gaming KB Gaming KB Consumer Control    	id=15	[slave  keyboard (3)]
+</code></pre></div></div>
+
+<p><strong>ВАЖНО!:</strong> Ты должен выбрать девайс, в названии которого есть Pen или Stylus, в разделе <strong>Virtual core pointer</strong>. Я имею планшет от фирмы Gaomon.</p>
+
+<p>А где HDMI-0 — это название порта, к которому подключен наш монитор. Его посмотреть можно с помощью команды xrandr</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$xrandr
+Screen 0: minimum 8 x 8, current 3840 x 1080, maximum 16384 x 16384
+VGA-0 connected 1920x1080+1920+0 (normal left inverted right x axis y axis) 476mm x 268mm
+   1920x1080     60.00*+
+   1600x900      60.00  
+   1280x1024     75.02    60.02  
+   1152x864      75.00  
+   1024x768      75.03    60.00  
+   800x600       75.00    60.32  
+   640x480       75.00    59.94  
+DVI-D-0 disconnected (normal left inverted right x axis y axis)
+HDMI-0 connected primary 1920x1080+0+0 (normal left inverted right x axis y axis) 521mm x 293mm
+   1920x1080     60.00*+  59.94    50.00  
+   1680x1050     59.95  
+   1600x900      60.00  
+   1440x900      59.89  
+   1280x1024     75.02    60.02  
+   1280x800      59.81  
+   1280x720      60.00    59.94    50.00  
+   1152x864      75.00  
+   1024x768      75.03    70.07    60.00  
+   800x600       75.00    72.19    60.32    56.25  
+   720x576       50.00  
+   720x480       59.94  
+   640x480       75.00    72.81    59.94  
+
+</code></pre></div></div>
+
+<h3 id="скрипт">Скрипт</h3>
+
+<p>Так же, я для себя написал скрипт на питоне, с который можно поставить в автозагрузку. Знаю, можно было и на баше написать, но мне было лень.</p>
+
+<p>Скрипт можно достать вот <a href="https://bitbucket.org/myrkon/workspace/snippets/kn8xA7">тут</a></p>
+
+<p>В пятой строке, в переменную device_name в кавычках мы должны написать название стилуса планшета, которое мы опять можем взять из вывода команды xinput.</p>
+
+:ET
